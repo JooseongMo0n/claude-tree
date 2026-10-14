@@ -6,25 +6,7 @@ See the flow of a long [Claude Code](https://claude.com/claude-code) session at 
 
 A session that runs for days drifts through planning, digressions, dead ends and rewinds. When you come back, scrolling up to re-orient takes a while. `claude-tree` reads the session transcript, asks a small model (Haiku) to group it into units of work, and prints the result as a tree in your terminal.
 
-```
-❯ claude-tree
-
-Claude Code 작업 흐름 트리와 메모리 개선  10/14 · 프롬프트 22개 · 17:03 기준
-├─ ✔ tree 기능 설계 회의  10/14 14:38–15:02
-│  ├─ ✔ rewind·fork와 history 범위 정리  14:38
-│  └─ ✔ 표시 위치와 갱신 방식 결정  14:55
-├─ ✔ claude-tree v1 구현과 웹 시도  10/14 15:04–15:26
-│  ├─ ✔ claude-tree v1 구현  15:04
-│  └─ ✗ 마인드맵 웹 화면 시도  15:20
-├─ ✔ 터미널 tree 전환과 상태줄 정리  10/14 15:43–15:50
-│  ├─ ✔ 웹 viewer 제거와 터미널 출력  15:43
-│  └─ ✔ 상태줄 cache 표시와 순서 정리  15:48
-├─ ✔ 세션 경로 NFC 불일치 수정  10/14 15:55
-├─ ✔ tree 로딩 표시와 갱신 흐름 개선  10/14 15:58–16:56
-│  ├─ ✔ 스피너와 이전 tree 유지 흐름  15:58
-│  └─ ✔ 화면 지우기와 시간 표시 다듬기  16:07
-└─ ● claude-tree 코드 위치와 공개 준비  10/14 17:00–17:01  ← 지금
-```
+<p align="center"><img src="docs/demo.svg" alt="claude-tree demo: the previous tree is shown while new prompts are organized, then the screen is redrawn with the updated tree" width="820"></p>
 
 `✔` done · `●` in progress · `✗` abandoned · `↩` discarded by rewind
 
