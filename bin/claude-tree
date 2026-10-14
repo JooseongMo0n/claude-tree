@@ -1,0 +1,10 @@
+#!/bin/bash
+# 심볼릭 링크로 불려도 저장소 위치를 찾아 실행한다
+src="${BASH_SOURCE[0]}"
+while [ -L "$src" ]; do
+  dir=$(cd -P "$(dirname "$src")" && pwd)
+  src=$(readlink "$src")
+  [[ $src != /* ]] && src="$dir/$src"
+done
+root=$(cd -P "$(dirname "$src")/.." && pwd)
+PYTHONPATH="$root${PYTHONPATH:+:$PYTHONPATH}" exec "${CLAUDE_TREE_PYTHON:-python3}" -m claude_tree "$@"
